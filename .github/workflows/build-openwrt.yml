@@ -29,7 +29,7 @@ on:
           - s905x3-x88-pro-x3_s912-m8s-pro_s905x-t95_s912-t95z-plus_s905l3-unt400g1_s905lb-r3300l
           - s912-x92_s922x_s922x-ct2000_s922x-reva_seewo-sv21_smart-am40_station-m1_sw799_swan1-w28
           - tanix-tx6_tb-ls3399_tn3399_tpm312_tqc-a01_tvi3315a_vplus_xiaobao_yskj_zcube1-max_zk-r39a_zysj
-          - vplus_tanix-tx6_tqc-a01
+          - x86-64
           - a311d
           - beikeyun
           - chainedbox
@@ -176,7 +176,7 @@ on:
       openwrt_kernel:
         description: "Select kernel version"
         required: false
-        default: "6.1.y_6.6.y"
+        default: "6.1.y_6.8.y"
         type: choice
         options:
           - 5.4.y
@@ -184,7 +184,7 @@ on:
           - 5.15.y
           - 6.1.y
           - 6.6.y
-          - 6.1.y_6.6.y
+          - 6.1.y_6.8.y
           - 5.15.y_5.10.y
       auto_kernel:
         description: "Auto use the latest kernel"
@@ -384,7 +384,7 @@ jobs:
           allowUpdates: true
           removeArtifacts: false
           replacesArtifacts: true
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.SEARIY_TOKEN }}
 
       - name: Packaging OpenWrt
         if: ${{ steps.clean.outputs.status }} == 'success' && !cancelled()
@@ -407,7 +407,7 @@ jobs:
           allowUpdates: true
           removeArtifacts: false
           replacesArtifacts: true
-          token: ${{ secrets.GITHUB_TOKEN }}
+          token: ${{ secrets.SEARIY_TOKEN }}
           body: |
             ### OpenWrt Image information
             - Default IP: 192.168.1.1
